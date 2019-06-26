@@ -47,6 +47,8 @@ public class EntitiyManagerDemoApplication implements CommandLineRunner {
 		
 		logger.info("Couse ------------sudentImp.completedProject();-----------{}"  , sudentImp.completedProject());
 		
+		logger.info("Couse ------------sudentImp.getEmployeeDetails();-----------{}"  , sudentImp.getEmployeeDetails());
+		
 	}
 	
 	

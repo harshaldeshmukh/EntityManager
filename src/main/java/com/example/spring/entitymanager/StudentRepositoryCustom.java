@@ -9,5 +9,7 @@ public interface StudentRepositoryCustom {
  public	List<Course> FindByOpps() ;
 		
  public List<CompletedProjectList> completedProject();
+ 
+ public List<Employee> getEmployeeDetails();
 
 }

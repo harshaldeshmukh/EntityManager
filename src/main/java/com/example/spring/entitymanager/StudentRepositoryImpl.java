@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
 
 import org.hibernate.Metamodel;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -63,8 +64,32 @@ public class StudentRepositoryImpl implements StudentRepositoryCustom{
 			System.out.println("CompletedProject === " + course.getProject_management_consultant());
 			System.out.println("CompletedProject === " + course.getPID());
 		}
-		System.out.println("topics === " + topics.size());
+		System.out.println("CompletedProject Size === " + topics.size());
 		return topics;
+	}
+
+	@Override
+	public List<Employee> getEmployeeDetails() {
+		// TODO Auto-generated method stub
+		
+		CriteriaBuilder builder= em.getCriteriaBuilder();
+		CriteriaQuery<Employee> crtiteria_query= builder.createQuery(Employee.class);
+		Root<Employee> root=	crtiteria_query.from(Employee.class);
+		root.fetch("department");
+		//crtiteria_query.where((root.get("emp_id"), 1);
+		List<Employee> emp_list = em.createQuery(crtiteria_query).getResultList();
+		for (Employee employee : emp_list) {
+			System.out.println("Employee === " + employee.getDesignation());
+			System.out.println("Employee === " + employee.getName());
+			
+			Department depart= employee.getDepartment();
+			
+			System.out.println("depart === " + depart.getName());
+			System.out.println("depart ID === " + depart.getId());
+		}
+		
+		
+		return emp_list;
 	}
 
 }

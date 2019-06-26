@@ -11,5 +11,7 @@ public interface StudentRepositoryCustom {
  public List<CompletedProjectList> completedProject();
  
  public List<Employee> getEmployeeDetails();
+ 
+ public List<Object[]> getEmployeeDepartmentJoinDetails();
 
 }

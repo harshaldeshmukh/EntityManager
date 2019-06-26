@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
 
 import org.hibernate.Metamodel;
+import org.hibernate.query.Query;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.stereotype.Service;
 
@@ -90,6 +91,33 @@ public class StudentRepositoryImpl implements StudentRepositoryCustom{
 		
 		
 		return emp_list;
+	}
+
+	@Override
+	public List<Object[]> getEmployeeDepartmentJoinDetails() {
+		// TODO Auto-generated method stub
+		CriteriaBuilder builder= em.getCriteriaBuilder();
+		
+		CriteriaQuery<Object[]> criteriaQuery = builder.createQuery(Object[].class);
+		Root<Employee> rootEmp = criteriaQuery.from(Employee.class);
+		Root<Department> rootDept = criteriaQuery.from(Department.class);
+		
+		criteriaQuery.multiselect(rootEmp,rootDept);
+		criteriaQuery.where(builder.equal(rootEmp.get("department"), rootDept.get("id")));
+		
+		Query<Object[]> query = (Query<Object[]>) em.createQuery(criteriaQuery);
+		
+		List<Object[]> resultList = query.getResultList();
+		for (Object[] objects : resultList) {
+			//Here we are getting data employee into 0th position
+			Employee employee=(Employee)objects[0];
+			System.out.println(employee.getId()+"\t"+employee.getName());
+			//Here we are getting data department into 1st position
+			Department department=(Department)objects[1];
+			
+			System.out.println(department.getId()+"\t"+department.getName());
+		}
+		return resultList;
 	}
 
 }

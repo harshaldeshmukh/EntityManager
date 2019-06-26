@@ -1,4 +1,4 @@
-package com.example.spring.entitymanager;
+package com.example.spring.entitymanager.entities;
 
 import java.util.ArrayList;
 import java.util.List;

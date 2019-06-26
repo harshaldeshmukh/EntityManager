@@ -1,4 +1,4 @@
-package com.example.spring.entitymanager;
+package com.example.spring.entitymanager.Repository;
 
 import java.util.List;
 
@@ -15,8 +15,13 @@ import org.hibernate.query.Query;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.stereotype.Service;
 
+import com.example.spring.entitymanager.entities.CompletedProjectList;
+import com.example.spring.entitymanager.entities.Course;
+import com.example.spring.entitymanager.entities.Department;
+import com.example.spring.entitymanager.entities.Employee;
+
 @Service
-public class StudentRepositoryImpl implements StudentRepositoryCustom{
+public class MethodDeclerationImpl implements MethodDeclarations{
 
 	@PersistenceContext
     private EntityManager em;

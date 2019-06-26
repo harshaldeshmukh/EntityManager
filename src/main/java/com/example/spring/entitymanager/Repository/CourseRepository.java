@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.example.spring.entitymanager.Course;
+import com.example.spring.entitymanager.entities.Course;
 
 @Repository
 public class CourseRepository {

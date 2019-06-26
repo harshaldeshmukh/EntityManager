@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.spring.entitymanager.Repository.CourseRepository;
+import com.example.spring.entitymanager.Repository.MethodDeclerationImpl;
+import com.example.spring.entitymanager.entities.Course;
 
 import net.bytebuddy.asm.Advice.This;
 
@@ -22,7 +24,7 @@ public class EntitiyManagerDemoApplication implements CommandLineRunner {
 	CourseRepository courseRepository;
 	
 	@Autowired
-	StudentRepositoryImpl sudentImp;
+	MethodDeclerationImpl sudentImp;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(EntitiyManagerDemoApplication.class, args);

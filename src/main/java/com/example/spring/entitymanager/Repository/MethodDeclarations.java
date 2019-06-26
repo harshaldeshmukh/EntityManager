@@ -1,8 +1,12 @@
-package com.example.spring.entitymanager;
+package com.example.spring.entitymanager.Repository;
 
 import java.util.List;
 
-public interface StudentRepositoryCustom {
+import com.example.spring.entitymanager.entities.CompletedProjectList;
+import com.example.spring.entitymanager.entities.Course;
+import com.example.spring.entitymanager.entities.Employee;
+
+public interface MethodDeclarations {
 	
  public	List<Course> nameByCourse() ;
  

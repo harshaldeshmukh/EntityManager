@@ -1,4 +1,4 @@
-package com.example.spring.entitymanager;
+package com.example.spring.entitymanager.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
